@@ -3,7 +3,8 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { useState, useEffect } from "react";
-import { Button } from "@mui/material";
+import { Button, Container, Typography } from "@mui/material";
+import Footer from "./Footer";
 
 const App = () => {
   const [firstNum, setFirstNum] = useState("0");
@@ -84,6 +85,7 @@ const App = () => {
     setMulti(false);
     setDiv(false);
     setOperator("");
+    setTotalSum("0");
   };
 
   const calclulateButton = () => {
@@ -105,103 +107,128 @@ const App = () => {
     }
     setTotalSumForCalc(result);
     setTotalSum(result.toLocaleString());
-    clearButton();
+    setFirstNumForCalc("0");
+    setSecondNumForCalc("0");
+    setAdd(false);
+    setSub(false);
+    setMulti(false);
+    setDiv(false);
+    setOperator("");
   };
 
   return (
-    <>
-      <div>
-        {firstNum} {operator} {secondNum}
-      </div>
-      <div>Total Sum = {totalSum}</div>
-      <Box sx={{ border: "2px solid grey", boxSizing: "border-box" }}>
-        <Grid container spacing={1}>
-          <Grid item xs={3}>
-            <Button onClick={zeroButton} variant="contained">
-              0
-            </Button>
-          </Grid>
-          <Grid item xs={3}>
-            <Button onClick={oneButton} variant="contained">
-              1
-            </Button>
-          </Grid>
-          <Grid item xs={3}>
-            <Button onClick={twoButton} variant="contained">
-              2
-            </Button>
-          </Grid>
-          <Grid item xs={3}>
-            <Button onClick={additionButton} variant="contained">
-              +
-            </Button>
-          </Grid>
+    <div className="backgroundImg">
+      <Typography variant="h4">
+        A mini-fun project, web-app frontend working calculator which supports
+        addition, subtraction, multiplication and division. Framework used{" "}
+        <a href="https://react.dev/" style={{ color: "inherit" }}>
+          React
+        </a>
+        , have fun!!!
+      </Typography>
+      <Container maxWidth="sm">
+        <Box
+          sx={{
+            bgcolor: "#FFA500",
+            height: "23vh",
+            border: "2px solid grey",
+          }}
+        >
+          <Typography>
+            {firstNum} {operator} {secondNum}
+          </Typography>
+          <Typography>Total Sum = {totalSum}</Typography>
+          <Box sx={{ border: "2px solid grey", boxSizing: "border-box" }}>
+            <Grid container spacing={1}>
+              <Grid item xs={3}>
+                <Button onClick={zeroButton} variant="contained">
+                  0
+                </Button>
+              </Grid>
+              <Grid item xs={3}>
+                <Button onClick={oneButton} variant="contained">
+                  1
+                </Button>
+              </Grid>
+              <Grid item xs={3}>
+                <Button onClick={twoButton} variant="contained">
+                  2
+                </Button>
+              </Grid>
+              <Grid item xs={3}>
+                <Button onClick={additionButton} variant="contained">
+                  +
+                </Button>
+              </Grid>
 
-          <Grid item xs={3}>
-            <Button onClick={threeButton} variant="contained">
-              3
-            </Button>
-          </Grid>
-          <Grid item xs={3}>
-            <Button onClick={fourButton} variant="contained">
-              4
-            </Button>
-          </Grid>
-          <Grid item xs={3}>
-            <Button onClick={fiveButton} variant="contained">
-              5
-            </Button>
-          </Grid>
-          <Grid item xs={3}>
-            <Button onClick={substractionButton} variant="contained">
-              -
-            </Button>
-          </Grid>
+              <Grid item xs={3}>
+                <Button onClick={threeButton} variant="contained">
+                  3
+                </Button>
+              </Grid>
+              <Grid item xs={3}>
+                <Button onClick={fourButton} variant="contained">
+                  4
+                </Button>
+              </Grid>
+              <Grid item xs={3}>
+                <Button onClick={fiveButton} variant="contained">
+                  5
+                </Button>
+              </Grid>
+              <Grid item xs={3}>
+                <Button onClick={substractionButton} variant="contained">
+                  -
+                </Button>
+              </Grid>
 
-          <Grid item xs={3}>
-            <Button onClick={sixButton} variant="contained">
-              6
-            </Button>
-          </Grid>
-          <Grid item xs={3}>
-            <Button onClick={sevenButton} variant="contained">
-              7
-            </Button>
-          </Grid>
-          <Grid item xs={3}>
-            <Button onClick={eightButton} variant="contained">
-              8
-            </Button>
-          </Grid>
-          <Grid item xs={3}>
-            <Button onClick={multiButton} variant="contained">
-              *
-            </Button>
-          </Grid>
+              <Grid item xs={3}>
+                <Button onClick={sixButton} variant="contained">
+                  6
+                </Button>
+              </Grid>
+              <Grid item xs={3}>
+                <Button onClick={sevenButton} variant="contained">
+                  7
+                </Button>
+              </Grid>
+              <Grid item xs={3}>
+                <Button onClick={eightButton} variant="contained">
+                  8
+                </Button>
+              </Grid>
+              <Grid item xs={3}>
+                <Button onClick={multiButton} variant="contained">
+                  *
+                </Button>
+              </Grid>
 
-          <Grid item xs={3}>
-            <Button onClick={nineButton} variant="contained">
-              9
-            </Button>
-          </Grid>
-          <Grid item xs={3}>
-            <Button onClick={calclulateButton} variant="contained">
-              =
-            </Button>
-          </Grid>
-          <Grid item xs={3}>
-            <Button onClick={clearButton} variant="contained">
-              clear
-            </Button>
-          </Grid>
-          <Grid item xs={3}>
-            <Button onClick={divButton} variant="contained">
-              /
-            </Button>
-          </Grid>
-        </Grid>
-      </Box>
-    </>
+              <Grid item xs={3}>
+                <Button onClick={nineButton} variant="contained">
+                  9
+                </Button>
+              </Grid>
+              <Grid item xs={3}>
+                <Button onClick={calclulateButton} variant="contained">
+                  =
+                </Button>
+              </Grid>
+              <Grid item xs={3}>
+                <Button onClick={clearButton} variant="contained">
+                  clear
+                </Button>
+              </Grid>
+              <Grid item xs={3}>
+                <Button onClick={divButton} variant="contained">
+                  /
+                </Button>
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>
+      </Container>
+      <Footer/>
+    </div>
   );
 };
 
