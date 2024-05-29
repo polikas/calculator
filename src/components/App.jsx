@@ -130,7 +130,7 @@ const App = () => {
         <Box
           sx={{
             bgcolor: "#FFA500",
-            height: "23vh",
+            height: "auto",
             border: "2px solid grey",
           }}
         >
@@ -227,7 +227,7 @@ const App = () => {
           </Box>
         </Box>
       </Container>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

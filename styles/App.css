@@ -11,16 +11,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  display: grid;
-  place-items: center;
+  justify-content: center; /* Center vertically */
   height: 100vh;
 }
 
 .backgroundImg h4 {
-  position: absolute;
-  top: 100px;
-  left: 50%;
-  transform: translateX(-50%);
   color: greenyellow;
   font-family: "Anton", sans-serif;
 }
